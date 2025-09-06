@@ -1,0 +1,26 @@
+# Python environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+
+# TensorFlow / Keras files
+# Ignore saved models and checkpoints to avoid large file sizes in the repo.
+*.h5
+saved_model/
+checkpoints/
+
+# Google Colab specific files
+.config/
+/tmp/
+
+# Data files and folders
+# This is the most important part. It prevents your large dataset from being uploaded.
+# The `animals.zip` and the `animals` folder will be ignored.
+*.zip
+animals/
