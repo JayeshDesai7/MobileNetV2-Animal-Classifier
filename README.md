@@ -8,6 +8,12 @@ The dataset used contains a total of **5400 images**, divided among 90 unique an
 - **Training Set**: 4320 images (80%) used to train the model.
 - **Validation Set**: 1080 images (20%) used to evaluate model performance.
 
+## Dataset Download
+
+The dataset is not included in the repository due to its large size. Please download the `animals.zip` file from the link below and upload it to your own Google Drive.
+
+**Download Link:** https://drive.google.com/file/d/1alKeBWbtYZKO_Jz7rTCgLh073WK6EhOZ/view?usp=sharing
+
 ## Methodology
 The core of this project relies on a few key techniques to achieve high performance and fast training:
 - **Transfer Learning**: We use MobileNetV2, a model pre-trained on a massive dataset, as a feature extractor. This allows our model to learn efficiently with a smaller dataset.
