@@ -23,8 +23,11 @@ The core of this project relies on a few key techniques to achieve high performa
 
 ## Results
 After 10 epochs of training, the model achieves the following performance on the validation set:
-- **Validation Loss**: [Paste your final validation loss here]
-- **Validation Accuracy**: [Paste your final validation accuracy here]
-
+- **Validation Loss**: 0.3468
+- **Validation Accuracy**: 90.1%
 ### Example Prediction
-Here is an example of the model predicting a **goose** with high confidence.
+#### **1. Prediction on a Local Dataset Image**
+This example shows the model correctly identifying a **dog** from an image included in your local dataset.
+
+#### **2. Prediction on an Image from a URL**
+This example demonstrates the model's ability to predict on images from the web, showing it correctly identifies a **lion** from a given URL.
