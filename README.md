@@ -1,7 +1,4 @@
 # MobileNetV2-Animal-Classifier
-A deep learning model that classifies 90 different animal species using TensorFlow and MobileNetV2.
-
-# Animal Image Classifier
 
 ## Project Overview
 This project demonstrates a multi-class image classifier trained to identify 90 different animal species. The model is built using TensorFlow and Keras, leveraging the power of **transfer learning** with a pre-trained **MobileNetV2** model. The entire project is optimized to run efficiently on Google Colab.
