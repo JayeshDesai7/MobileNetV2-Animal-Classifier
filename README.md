@@ -20,15 +20,100 @@ The core of this project relies on a few key techniques to achieve high performa
 - **Data Pipeline Optimization**: The dataset is stored in a single compressed file (`.zip`) and unzipped directly to the high-speed local disk of the Colab environment, eliminating I/O bottlenecks from Google Drive.
 - **Mixed-Precision Training**: To significantly reduce training time, we use a mix of 16-bit and 32-bit floating-point types, which leverages the specialized hardware on GPUs like the T4.
 
-## How to Run the Project
-1.  **Open Google Colab**: Go to `colab.research.google.com`.
-2.  **Create a New Notebook**: Go to `File > New notebook`.
-3.  **Upload the Code**: Copy the entire code from the `animal_classifier.ipynb` file in this repository and paste it into a cell in your Colab notebook.
-4.  **Upload the Dataset**: Upload your `animals.zip` file to your Google Drive. Make sure to update the `ZIP_FILE_PATH` variable in the notebook to match its location.
-5.  **Run the Cells**: Execute the notebook cells sequentially. The code will handle everything from data loading and training to making predictions.
+# How to Run the Project
+
+You can run this project in two ways:
+* **Option A:** Using Google Colab (with Google Drive & a ZIP file)
+* **Option B:** Using a local environment like Jupyter Lab (with the dataset folder)
+
+---
+
+## 🔹 Option A: Run on Google Colab
+
+1.  **Open Google Colab**: Navigate to [colab.research.google.com](https://colab.research.google.com).
+
+2.  **Create a New Notebook**: Go to `File` > `New notebook`.
+
+3.  **Upload the Code**: Copy the entire code from `animal_classifier.ipynb` into a Colab notebook cell.
+
+4.  **Upload the Dataset**: Upload your `animals.zip` file to your Google Drive.
+
+5.  **Update Variables**: Modify the following variables in the notebook to match your file paths.
+
+    ```python
+    zip_path = "/content/drive/MyDrive/Data_animals/animals.zip"
+    local_unzip_path = "/content/animals_unzipped"
+    ```
+
+6.  **Enable GPU Runtime (Recommended)**:
+    * Go to `Runtime` > `Change runtime type`.
+    * Select **GPU (T4)** from the dropdown menu.
+
+7.  **Run the Cells**: Execute the cells sequentially to train, evaluate, and make predictions.
+
+---
+
+## 🔹 Option B: Run Locally on Jupyter Lab
+
+1.  **Install Dependencies** (Python 3.10 or below is recommended):
+
+    ```bash
+    pip install tensorflow matplotlib pillow requests
+    ```
+     **Note on TensorFlow & Python Versions:**
+
+    -> This project works best with **Python 3.10 or below**, where TensorFlow has better GPU support. 
+
+    -> In higher versions (3.11+), TensorFlow may default to the CPU, which is significantly slower. 
+    
+    -> For the best performance, use Python 3.10 locally or use Google Colab with a GPU.
+
+2.  **Open Jupyter Lab**:
+
+    ```bash
+    jupyter lab
+    ```
+
+3.  **Set Dataset Path**: Instead of using a ZIP file, point directly to your unzipped dataset folder. Use `r""` to handle Windows paths correctly.
+
+    ```python
+    # Example for Windows
+    DATA_DIR = r"C:\Users\YourName\Documents\animals_dataset"
+
+    # Example for macOS/Linux
+    DATA_DIR = "/home/yourname/documents/animals_dataset"
+    ```
+
+4.  **Run the Notebook**: Execute the cells sequentially. The model will load images from `DATA_DIR`, train, and allow predictions.
+
+---
+
+## Quick Environment Check
+
+Before running, you can add this snippet to a top cell to verify your setup:
+
+```python
+import sys
+import tensorflow as tf
+print("Python version:", sys.version.split()[0])
+gpus = tf.config.list_physical_devices('GPU')
+if gpus:
+    print("✅ GPU detected:", gpus)
+else:
+    print("⚠️ No GPU detected. Training will run on CPU (slower).")
+```
+
+* **GPU found** → You’re good to go! 🚀
+* **No GPU found** → Consider installing the correct CUDA/cuDNN drivers for your system or switch to the Colab method.
+
+---
+
+## **Recommended**
+
+ > If you want to avoid the headache of managing Python versions, CUDA drivers, and local dependencies, **just use Option A (Google Colab with a T4 GPU)**. It’s free, faster for training, and much easier to set up!
 
 ## Results
-After 10 epochs of training, the model achieves the following performance on the validation set:
+After 20 epochs of training, the model achieves the following performance on the validation set:
 - **Validation Loss**: 0.6365
 - **Validation Accuracy**: 90%
 ### Example Prediction
