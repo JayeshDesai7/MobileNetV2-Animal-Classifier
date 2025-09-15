@@ -58,7 +58,7 @@ You can run this project in two ways:
 1.  **Install Dependencies** (Python 3.10 or below is recommended):
 
     ```bash
-    pip install tensorflow matplotlib pillow requests
+    pip install -r requirements.txt
     ```
      **Note on TensorFlow & Python Versions:**
 
